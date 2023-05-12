@@ -1,0 +1,194 @@
+<div class="row">
+  <div class="header__container">
+    <div class="flex">
+      <div style="float: left" class="header__title">
+        <input type="text" class="header__input" placeholder="name your cv"><!----></div>
+
+     <div>
+       <select class="custom-select" (change)="changeLang($event.target.value)">
+         <option value="vi" [selected]="lang == 'vi'">Vietnamese</option>
+         <option value="en" [selected]="lang == 'en'">English</option>
+         <option value="ja" [selected]="lang == 'ja'">日本</option>
+       </select>
+     </div>
+      <div class="header__tool">
+        <div class="header__preview-cv">
+          <button class="btn-cv btn-cv--success btn-cv--fix-size is-plain"><span
+            class="btn-cv__text">Preview</span></button>
+        </div>
+        <div>
+          <button class="ml-20 mr-20 btn-cv btn-cv--success btn-cv--fix-size is-plain"><span class="btn-cv__text">Save and download</span>
+          </button>
+        </div>
+        <div class="save-cv">
+          <a routerLink="/cv">
+          <button class="save-cv save-cv__btn btn-cv btn-cv--success btn-cv--fix-size">
+           <span class="btn-cv__text">back </span></button></a>
+        </div><!----><!---->
+        <div class="confirm-modal">
+          <div class="el-overlay" style="z-index: 2001; display: none;">
+            <div class="el-overlay-dialog"><!--v-if--></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row container-fluid">
+  <div class="col col-lg-4">
+    <div class="row">
+        <h4 style="color:red; text-align: center;padding: 8px"> Guide to Writing a CV</h4>
+    </div>
+    <div class="row">
+      <iframe width="853" height="480" src="https://www.youtube.com/embed/q-6UnBM4i38"
+              title="Hướng dẫn thiết lập tổng quan CV Builder 2.0 từ TopCV" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+    </div>
+
+    <br><br>
+    <div class="row">
+      <iframe width="853" height="480" src="https://www.youtube.com/embed/TbJfQFRv_vU"
+              title="Hướng dẫn thao tác trên giao diện chỉnh sửa CV Builder 2.0 từ TopCV" frameborder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen></iframe>
+    </div>
+  </div>
+  <div class="col col-lg-8">
+    <!--page container-->
+    <div class="allContent">
+      <!--part left-->
+      <div class="leftRight">
+        <div class="allLeft">
+          <!--picture-->
+          <div class="Top">
+            <img src="https://freenice.net/wp-content/uploads/2021/10/Hinh-anh-dai-dien-nguoi-giau-mat-nen-xam.jpg">
+            <h2 class="jane">{{account.name}}</h2>
+          </div>
+          <!--Enter data-->
+          <div class="partTwo">
+            <p><i class="fa">&#xf0b1;</i>
+              <input placeholder="nominee :  "
+                     style="width: 50%;border-style: dotted;border-color: red;font-size: 15px">
+            </p>
+            <p><i class="fa">&#xf1fd;</i>{{account.dateOfBirth}}</p>
+            <p><i class="fa">&#xf015;</i>{{account.address}}</p>
+            <p class="text-truncate"><i class="fa">&#xf0e0;</i>{{account.email}}</p>
+            <p><i class="fa"> &#xf095;</i>{{account.phoneNumber}}</p>
+          </div>
+          <hr>
+          <!--Enter Skills-->
+          <div class="partTwo">
+            <p class="star"><i class="fa">&#xf069;</i><b>Skills</b></p>
+            <input placeholder="Skill 1 :  "
+                   style="width: 100%;border-style: dotted;border-color: red;font-size: 15px;margin: 5px">
+            <div class="outside ">
+              <input type="range" style="width: 100%;height: 100%">
+            </div>
+            <input placeholder="Skill 2 :  "
+                   style="width: 100%;border-style: dotted;border-color: red;font-size: 15px;margin: 5px">
+            <div class="outside">
+              <input type="range" style="width: 100%;height: 100%">
+            </div>
+            <input placeholder="Skill 3 :  "
+                   style="width: 100%;border-style: dotted;border-color: red;font-size: 15px;margin: 5px">
+            <div class="outside">
+              <input type="range" style="width: 100%;height: 100%">
+            </div>
+            <input placeholder="Skill 4 :  "
+                   style="width: 100%;border-style: dotted;border-color: red;font-size: 15px;margin: 5px">
+            <div class="outside">
+              <input type="range" style="width: 100%;height: 100%">
+            </div>
+            <br><br>
+            <p class="star"><i class="fa"> &#xf0ac;</i><b>Languages</b></p>
+            <input placeholder="Language 1 :  "
+                   style="width: 100%;border-style: dotted;border-color: red;font-size: 15px;margin: 5px">
+            <div class="outside center">
+              <input type="range" style="width: 100%;height: 100%">
+            </div>
+            <input placeholder="Language 2 :  "
+                   style="width: 100%;border-style: dotted;border-color: red;font-size: 15px;margin: 5px">
+            <div class="outside">
+              <input type="range" style="width: 100%;height: 100%">
+            </div>
+            <input placeholder="Language 3 :  "
+                   style="width: 100%;border-style: dotted;border-color: red;font-size: 15px;margin: 5px">
+            <div class="outside">
+              <input type="range" style="width: 100%;height: 100%">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--part right-->
+      <div class="rightLeft">
+        <div class="partRight">
+          <!--write experience-->
+          <div class="com">
+            <h2 class="icon"><i class="fa">&#xf0f2;</i>Work experience</h2>
+          </div>
+          <br>
+          <div class="com">
+            <input placeholder="Name of the job :  "
+                   style="width: 100%;border-style: dotted;border-color: red;font-size: 15px;margin: 5px">
+            <h6><i class="fa">&#xf073;</i><input placeholder="enter start date - end date  "
+                                                 style="width: 50%;border-style: dotted;border-color: red;font-size: 15px;margin: 5px">
+            </h6>
+            <textarea rows="5" placeholder="description...  "
+                      style="width: 100%; border-style: dotted;border-color: red;font-size: 15px;margin: 5px"></textarea>
+          </div>
+          <hr>
+          <div class="com">
+            <input placeholder="Name of the job :   "
+                   style="width: 100%;border-style: dotted;border-color: red;font-size: 15px;margin: 5px">
+            <h6><i class="fa">&#xf073;</i><input placeholder="enter start date - end date  "
+                                                 style="width: 50%;border-style: dotted;border-color: red;font-size: 15px;margin: 5px">
+            </h6>
+            <textarea rows="5" placeholder="description... "
+                      style="width: 100%; border-style: dotted;border-color: red;font-size: 15px;margin: 5px"></textarea>
+          </div>
+        </div>
+        <!--levels education-->
+        <div class="partRight">
+          <div class="com">
+            <h2 class="icon"><i class="fa">&#xf0a3;</i>Project</h2>
+          </div>
+          <br>
+          <div class="com">
+            <input placeholder="Project name :  "
+                   style="width: 100%;border-style: dotted;border-color: red;font-size: 15px;margin: 5px">
+            <h6><i class="fa">&#xf073;</i><input placeholder="enter start date - end date  "
+                                                 style="width: 50%;border-style: dotted;border-color: red;font-size: 15px;margin: 5px">
+            </h6>
+            <textarea rows="4" placeholder="description...   "
+                      style="width: 100%; border-style: dotted;border-color: red;font-size: 15px;margin: 5px"></textarea>
+          </div>
+          <hr>
+          <div class="com">
+            <input placeholder="Project name :   "
+                   style="width: 100%;border-style: dotted;border-color: red;font-size: 15px;margin: 5px">
+            <h6><i class="fa">&#xf073;</i><input placeholder="enter start date - end date  "
+                                                 style="width: 50%;border-style: dotted;border-color: red;font-size: 15px;margin: 5px">
+            </h6>
+            <textarea rows="4" placeholder="description...  "
+                      style="width: 100%; border-style: dotted;border-color: red;font-size: 15px;margin: 5px"></textarea>
+          </div>
+        </div>
+      </div>
+      <!--end container-->
+    </div>
+    <!--footer-->
+    <footer class="center">
+      <p>Find me on social media.</p>
+      <i class="fa">&#xf09a;</i>
+      <i class="fa">&#xf16d;</i>
+      <i class="fa">&#xf2ab;</i>
+      <i class="fa">&#xf0d2;</i>
+      <i class="fa">&#xf099;</i>
+      <i class="fa">&#xf0e1;</i>
+      <p>Powered by<a>w3.css</a></p>
+    </footer>
+  </div>
+</div>
+

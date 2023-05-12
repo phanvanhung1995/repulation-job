@@ -1,0 +1,24 @@
+<div style="text-align: center;padding: 2rem">
+  <h2 style="text-align: center;color: forestgreen;font-family: 'Muli', sans-serif ">BUYING HISTORY</h2>
+</div>
+<table class="table table-striped container">
+  <tr>
+    <th>No</th>
+    <th>Photo</th>
+    <th>Name</th>
+    <th>Code</th>
+    <th>Date</th>
+    <th>Price</th>
+  </tr>
+  <tr *ngFor="let orders of orderList;index as i">
+    <div *ngIf="orderList.length === 0">
+      <h4 style="color:red; text-align: center;padding:20px">There Are No CV On The List</h4>
+    </div>
+    <td style="padding-top: 3rem">{{i + 1}}</td>
+    <td><img style="width: 5rem; height: 7rem" src="{{orders.link}}"></td>
+    <td style="padding-top: 3rem">{{orders.name}}</td>
+    <td style="padding-top: 3rem">{{orders.code}}</td>
+    <td style="padding-top: 3rem">{{orders.date}}</td>
+    <td style="padding-top: 3rem">{{orders.price}}</td>
+  </tr>
+</table>

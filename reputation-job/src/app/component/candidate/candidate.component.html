@@ -1,0 +1,43 @@
+<h4 STYLE="text-align: center; color: red;padding-top: 30px">THÔNG TIN TÀI KHOẢN </h4>
+
+<div class="row container-fluid" style="padding: 50px">
+  <div class="col-lg-6 col-md-6 col-sm-12" style="padding-left: 200px">
+    <div class="mb-3">
+      <label class="form-label">Username</label>
+      <input type="text" class="form-control" placeholder="{{candidate.name}}" disabled>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Gender</label>
+      <div *ngIf="candidate.gender === 'false'">
+        <input type="text" class="form-control" value="Nam" disabled>
+      </div>
+      <div *ngIf="candidate.gender === 'true'">
+        <input type="text" class="form-control" value="Nữ" disabled>
+      </div>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Date of birth</label><br>
+      <input type="text" class="form-control" placeholder="{{candidate.dateOfBirth}}" disabled>
+    </div>
+  </div>
+
+  <div class="col-lg-6 col-md-6 col-sm-12" style="padding-left: 50px">
+    <div class="mb-3">
+      <label class="form-label">Phone number</label>
+      <input type="text" class="form-control" placeholder="{{candidate.phoneNumber}}" disabled>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">ID card</label>
+      <input type="text" class="form-control" placeholder="{{candidate.idCard}}" disabled>
+    </div>
+    <div class="mb-3">
+      <label class="form-label">Address</label>
+      <input type="text" class="form-control" placeholder="{{candidate.address}}" disabled>
+    </div>
+  </div>
+</div>
+<div style="text-align: center">
+  <a routerLink="/candidate/change/{{candidate.id}}">
+  <button type="button" class="btn btn-warning" >update account </button>
+  </a>
+</div>
